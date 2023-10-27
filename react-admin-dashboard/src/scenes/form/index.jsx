@@ -3,9 +3,12 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
+import { useAuth } from "../../context/Auth";
 
 const Form = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
+
+  const [auth, setAuth] = useAuth();
 
   const handleFormSubmit = (values) => {
     console.log(values);
@@ -13,7 +16,7 @@ const Form = () => {
 
   return (
     <Box m="20px">
-      <Header title="CREATE USER" subtitle="Create a New User Profile" />
+      <Header title="My Profile" subtitle="You Can update your Profile Below" />
 
       <Formik
         onSubmit={handleFormSubmit}
@@ -44,7 +47,7 @@ const Form = () => {
                 label="First Name"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.firstName}
+                value={auth?.user?.name}
                 name="firstName"
                 error={!!touched.firstName && !!errors.firstName}
                 helperText={touched.firstName && errors.firstName}
@@ -57,7 +60,6 @@ const Form = () => {
                 label="Last Name"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.lastName}
                 name="lastName"
                 error={!!touched.lastName && !!errors.lastName}
                 helperText={touched.lastName && errors.lastName}
@@ -70,7 +72,7 @@ const Form = () => {
                 label="Email"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.email}
+                value={auth?.user?.email}
                 name="email"
                 error={!!touched.email && !!errors.email}
                 helperText={touched.email && errors.email}
@@ -93,10 +95,11 @@ const Form = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address 1"
+                disabled
+                label="College Name"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.address1}
+                value={auth?.user?.college}
                 name="address1"
                 error={!!touched.address1 && !!errors.address1}
                 helperText={touched.address1 && errors.address1}
@@ -106,10 +109,10 @@ const Form = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address 2"
+                label="Address 1"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.address2}
+                value="MIT Pune"
                 name="address2"
                 error={!!touched.address2 && !!errors.address2}
                 helperText={touched.address2 && errors.address2}
@@ -118,7 +121,7 @@ const Form = () => {
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
               <Button type="submit" color="secondary" variant="contained">
-                Create New User
+                Update
               </Button>
             </Box>
           </form>

@@ -13,16 +13,26 @@ import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import { useAuth } from "../../context/Auth";
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
+  const [auth, setAuth] = useAuth();
+
   return (
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
+        {auth?.user ? (
+          <>
+            <Header title="DASHBOARD" />
+            <p>Welcome back, {auth?.user?.name}! You are logged in.</p>
+          </>
+        ) : (
+          <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
+        )}
 
         <Box>
           <Button
