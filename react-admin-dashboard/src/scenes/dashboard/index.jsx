@@ -12,6 +12,9 @@ import GeographyChart from "../../components/GeographyChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import Signin from "../modal/SignIn";
+import Signup from "../modal/SignUp";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -22,7 +25,8 @@ const Dashboard = () => {
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-
+        <Signin />
+        <Signup />
         <Box>
           <Button
             sx={{
@@ -33,8 +37,8 @@ const Dashboard = () => {
               padding: "10px 20px",
             }}
           >
-            <DownloadOutlinedIcon sx={{ mr: "10px" }} />
-            Download Reports
+            <CloudUploadIcon sx={{ mr: "10px" }} />
+            Upload Projects
           </Button>
         </Box>
       </Box>
@@ -55,8 +59,8 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="12,361"
-            subtitle="Emails Sent"
+            title="51"
+            subtitle="Messages recieved"
             progress="0.75"
             increase="+14%"
             icon={
@@ -74,8 +78,8 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="431,225"
-            subtitle="Sales Obtained"
+            title="25"
+            subtitle="Projects completed"
             progress="0.50"
             increase="+21%"
             icon={
@@ -93,8 +97,8 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="32,441"
-            subtitle="New Clients"
+            title="3"
+            subtitle="Ongoing Projects"
             progress="0.30"
             increase="+5%"
             icon={
@@ -112,8 +116,8 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="1,325,134"
-            subtitle="Traffic Received"
+            title="183"
+            subtitle="Your Rating"
             progress="0.80"
             increase="+43%"
             icon={
@@ -143,14 +147,14 @@ const Dashboard = () => {
                 fontWeight="600"
                 color={colors.grey[100]}
               >
-                Revenue Generated
+                Projects Timeline
               </Typography>
               <Typography
                 variant="h3"
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                $59,342.32
+                13 projects
               </Typography>
             </Box>
             <Box>
@@ -180,7 +184,7 @@ const Dashboard = () => {
             p="15px"
           >
             <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Recent Transactions
+              Recent Projects
             </Typography>
           </Box>
           {mockTransactions.map((transaction, i) => (
@@ -210,7 +214,7 @@ const Dashboard = () => {
                 p="5px 10px"
                 borderRadius="4px"
               >
-                ${transaction.cost}
+                {transaction.cost}
               </Box>
             </Box>
           ))}
@@ -224,7 +228,7 @@ const Dashboard = () => {
           p="30px"
         >
           <Typography variant="h5" fontWeight="600">
-            Campaign
+            Profile
           </Typography>
           <Box
             display="flex"
@@ -238,9 +242,11 @@ const Dashboard = () => {
               color={colors.greenAccent[500]}
               sx={{ mt: "15px" }}
             >
-              $48,352 revenue generated
+              74% profile completed
             </Typography>
-            <Typography>Includes extra misc expenditures and costs</Typography>
+            <Typography>
+              Complete your profile 100% to get highlighted
+            </Typography>
           </Box>
         </Box>
         <Box
@@ -253,7 +259,7 @@ const Dashboard = () => {
             fontWeight="600"
             sx={{ padding: "30px 30px 0 30px" }}
           >
-            Sales Quantity
+            Monthly project progress
           </Typography>
           <Box height="250px" mt="-20px">
             <BarChart isDashboard={true} />
