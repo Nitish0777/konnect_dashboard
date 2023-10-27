@@ -16,6 +16,7 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import { useAuth } from "../../context/Auth";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -39,6 +40,7 @@ const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [auth, setAuth] = useAuth();
   const [selected, setSelected] = useState("Dashboard");
 
   return (
@@ -107,10 +109,10 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Nitish
+                  {auth?.user?.name ? auth.user.name : "Guest"}
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
-                  Contributor
+                  {auth?.user?.isMentor === 1 ? "Mentor" : "Student"}
                 </Typography>
               </Box>
             </Box>

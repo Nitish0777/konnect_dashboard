@@ -68,6 +68,7 @@ const SignupForm = () => {
 
   const handlePrn = (e) => {
     const newprn = e.target.value;
+    console.log("PRN " + prn);
     setPrn(newprn);
   };
   const handleName = (e) => {
@@ -82,11 +83,13 @@ const SignupForm = () => {
       return;
     }
     try {
+      const gmail = prn.concat(email2);
+      console.log("Concat Gmail " + gmail);
       const res = await axios.post(
         `${process.env.REACT_APP_API}/api/users/register`,
         {
           college: selectedUniversity,
-          email: prn + email2,
+          email: gmail,
           password,
           name,
         }
@@ -148,7 +151,7 @@ const SignupForm = () => {
           <div>
             <input
               style={{ width: "60%" }}
-              onChnage={handlePrn}
+              onChange={handlePrn}
               type="text"
               className={style.email1}
               name="email"

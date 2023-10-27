@@ -18,6 +18,8 @@ import Calendar from "./scenes/calendar/calendar";
 import SigninForm from "./pages/signin/SignIn";
 import SignupForm from "./pages/signup/SignUp";
 import { AuthProvider } from "./context/Auth";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -25,6 +27,7 @@ function App() {
 
   return (
     <AuthProvider>
+      <ToastContainer />
       <ColorModeContext.Provider value={colorMode}>
         <ThemeProvider theme={theme}>
           <CssBaseline />

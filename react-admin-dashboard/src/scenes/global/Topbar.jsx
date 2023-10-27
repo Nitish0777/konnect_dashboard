@@ -9,11 +9,25 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/Auth";
+import { toast } from "react-toastify";
 
 const Topbar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
+
+  const [auth, setAuth] = useAuth();
+
+  const handleLogout = () => {
+    setAuth({
+      ...auth,
+      user: null,
+      token: "",
+    });
+    localStorage.removeItem("auth");
+    toast.success("Logged out successfully");
+  };
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
@@ -31,34 +45,53 @@ const Topbar = () => {
 
       {/* ICONS */}
       <Box display="flex">
-        <IconButton>
-          <Link
-            style={{
-              backgroundColor: "#4cceac",
-              textDecoration: "none",
-              padding: "6px ",
-              borderRadius: "10px",
-              color: "white",
-            }}
-            to={"/signup"}
-          >
-            Sign Up
-          </Link>
-        </IconButton>
-        <IconButton>
-          <Link
-            style={{
-              backgroundColor: "#4cceac",
-              textDecoration: "none",
-              padding: "6px ",
-              borderRadius: "10px",
-              color: "white",
-            }}
-            to={"/signin"}
-          >
-            Sign In
-          </Link>
-        </IconButton>
+        {auth?.user ? (
+          <IconButton onClick={() => setAuth(false)}>
+            <Link
+              style={{
+                backgroundColor: "#4cceac",
+                textDecoration: "none",
+                padding: "6px ",
+                borderRadius: "10px",
+                color: "white",
+              }}
+              to="/"
+            >
+              Logout
+            </Link>
+          </IconButton>
+        ) : (
+          <>
+            <IconButton>
+              <Link
+                style={{
+                  backgroundColor: "#4cceac",
+                  textDecoration: "none",
+                  padding: "6px ",
+                  borderRadius: "10px",
+                  color: "white",
+                }}
+                to={"/signup"}
+              >
+                Sign Up
+              </Link>
+            </IconButton>
+            <IconButton>
+              <Link
+                style={{
+                  backgroundColor: "#4cceac",
+                  textDecoration: "none",
+                  padding: "6px ",
+                  borderRadius: "10px",
+                  color: "white",
+                }}
+                to={"/signin"}
+              >
+                Sign In
+              </Link>
+            </IconButton>
+          </>
+        )}
 
         <IconButton onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? (
