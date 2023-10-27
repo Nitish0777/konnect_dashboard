@@ -12,14 +12,13 @@ body {
   width: 90%;
   max-width: 400px;
   padding: 20px;
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.2);
   border-radius: 25px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 4px 8px 4px rgba(7, 188, 248, 0.2);
   transition: 0.3s;
   margin-left: 34%;
-  margin-top: 10%;
+  margin-top: 1.5%;
 }
-
 .container:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
@@ -132,14 +131,14 @@ select:focus {
 .clg {
   display: flex;
 }
-#email1 {
+.email1 {
   border-right: none;
   width: 85%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
 }
-#email2 {
+.email2 {
   border: 2px solid black;
   border-left: none;
   width: 85%;
@@ -171,7 +170,7 @@ select:focus {
   bottom: -150px;
   pointer-events: none;
 }
-#confirm-password {
+.confirm_password {
   width: 95%;
 }
 .container {

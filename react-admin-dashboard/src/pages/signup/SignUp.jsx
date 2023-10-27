@@ -41,6 +41,7 @@ import style from "./signup.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import logo from "../../assets/dark.png";
 
 const universities = [
   "Bharati Vidyapeeth",
@@ -144,19 +145,24 @@ const SignupForm = () => {
     <div className={style.container}>
       <Link to="/" className="logo">
         <img
-          src=""
+          src={logo}
           className={style.logoimg}
           height="50"
           width="150"
           alt="logo"
         />
       </Link>
-      <h1>Sign Up</h1>
+      <h1 style={{ color: "white" }}>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <div className={style.form_group}>
-          <label htmlFor="university">Select University:</label>
+          <label
+            style={{ color: "white", fontSize: "19px" }}
+            htmlFor="university"
+          >
+            Select University:
+          </label>
           <select
-            id="university"
+            className={style.university}
             name="university"
             value={selectedUniversity}
             onChange={handleUniversityChange}
@@ -172,19 +178,32 @@ const SignupForm = () => {
           </select>
         </div>
         <div className={style.form_group}>
-          <label htmlFor="email">College Email:</label>
-          <div className="clg">
+          <label style={{ color: "white", fontSize: "19px" }} htmlFor="email">
+            College Email:
+          </label>
+          <div>
             <input
+              style={{ width: "60%" }}
               onChnage={handlePrn}
               type="text"
-              id="email1"
+              className={style.email1}
               name="email"
               value={prn}
               required
             />
             <input
+              style={{
+                width: "40%",
+                backgroundColor: "white",
+                color: "black",
+                marginLeft: "-3px",
+                borderTopLeftRadius: "0px",
+                borderBottomLeftRadius: "0px",
+                disabled: "true",
+                opacity: "0.7",
+              }}
               type="email"
-              id="email2"
+              className={style.email2}
               name="email"
               value={email2}
               disabled
@@ -192,10 +211,13 @@ const SignupForm = () => {
           </div>
         </div>
         <div className={style.form_group}>
-          <label htmlFor="name">Name:</label>
+          <label style={{ color: "white", fontSize: "19px" }} htmlFor="name">
+            Name:
+          </label>
           <input
+            style={{ width: "100%", padding: "10px" }}
             type="text"
-            id="name"
+            className={style.name}
             name="name"
             value={name}
             onChange={handleName}
@@ -203,11 +225,17 @@ const SignupForm = () => {
           />
         </div>
         <div className={style.form_group}>
-          <label htmlFor="password">Password:</label>
+          <label
+            style={{ color: "white", fontSize: "19px" }}
+            htmlFor="password"
+          >
+            Password:
+          </label>
           <div className="password-container">
             <input
               type="password"
-              id="password"
+              style={{ width: "100%" }}
+              className={style.password}
               name="password"
               required
               value={password}
@@ -216,18 +244,21 @@ const SignupForm = () => {
           </div>
         </div>
         <div className={style.form_group}>
-          <label htmlFor="confirm-password">Confirm Password:</label>
+          <label
+            style={{ color: "white", fontSize: "19px" }}
+            htmlFor="confirm-password"
+          >
+            Confirm Password:
+          </label>
           <input
+            style={{ width: "100%" }}
             type="password"
-            id="confirm-password"
+            className={style.confirm_password}
             name="confirm-password"
             required
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          <div className={style.error} id="password-error">
-            {passwordError}
-          </div>
         </div>
         <button type="submit">Sign Up</button>
       </form>

@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useAuth } from "../../context/Auth";
+import logo from "../../assets/dark.png";
 
 const universities = [
   "Bharati Vidyapeeth",
@@ -74,12 +75,7 @@ const SigninForm = () => {
     <div className={style.container}>
       <div>
         <Link to="/">
-          <img
-            src="https://i.ibb.co/7t7GK9t/logo.png"
-            height="50"
-            width="150"
-            alt="logo"
-          />
+          <img src={logo} height="50" width="150" alt="logo" />
         </Link>
       </div>
       <h1 style={{ color: "white" }}>Sign In</h1>
