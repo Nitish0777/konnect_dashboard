@@ -13,7 +13,6 @@ import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const theme = useTheme();

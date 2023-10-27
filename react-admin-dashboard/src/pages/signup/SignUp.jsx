@@ -1,41 +1,3 @@
-//   return (
-//     <Layout>
-//       <div>
-//         Sign Up form
-//         <form onSubmit={handleSignUp}>
-//           <input
-//             type="text"
-//             placeholder="College"
-//             onChange={(e) => setCollege(e.target.value)}
-//           />
-//           <input
-//             type="text"
-//             placeholder="Name"
-//             onChange={(e) => setName(e.target.value)}
-//           />
-//           <input
-//             type="text"
-//             placeholder="Email"
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-//           <input
-//             type="password"
-//             placeholder="Password"
-//             onChange={(e) => setPassword(e.target.value)}
-//           />
-//           <input
-//             type="password"
-//             placeholder="Confirm Password"
-//             onChange={(e) => setConfirmPassword(e.target.value)}
-//           />
-//           <button type="submit">Sign Up</button>
-//         </form>
-//       </div>
-//     </Layout>
-//   );
-// };
-
-// export default SignUp;
 import React, { useState } from "react";
 import style from "./signup.module.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -44,6 +6,7 @@ import { toast } from "react-toastify";
 import logo from "../../assets/dark.png";
 
 const universities = [
+  "Gmail College",
   "Bharati Vidyapeeth",
   "Deccan College Post-Graduate and Research Institute",
   "Defence Institute of Advanced Technology (formerly Institute of Armament Technology)",
@@ -86,6 +49,7 @@ const SignupForm = () => {
     setSelectedUniversity(selectedUniversity);
 
     const universityToEmailDomain = {
+      "Gmail College": "gmail.com",
       "Bharati Vidyapeeth": "bharatividyapeeth.edu.in",
       "Deccan College Post-Graduate and Research Institute":
         "deccancollege.edu.in",
@@ -131,7 +95,7 @@ const SignupForm = () => {
       if (res.data.success) {
         console.log(res.data);
         toast.success("Verify your mail");
-        navigate("/login");
+        navigate("/signin");
       } else {
         console.log("Sign up error", res.data.messages);
         toast.error(res.data.message);
@@ -188,7 +152,6 @@ const SignupForm = () => {
               type="text"
               className={style.email1}
               name="email"
-              value={prn}
               required
             />
             <input
