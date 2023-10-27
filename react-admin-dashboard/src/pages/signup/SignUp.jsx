@@ -84,6 +84,7 @@
 // export default SignUp;
 import React, { useState } from "react";
 import style from "./signup.module.css";
+import { Link } from "react-router-dom";
 
 const universities = [
   "Bharati Vidyapeeth",
@@ -160,7 +161,7 @@ const SignupForm = () => {
 
   return (
     <div className={style.container}>
-      <link to="/Header" className="logo">
+      <Link to="/" className="logo">
         <img
           src=".\assets\light.png"
           className={style.logoimg}
@@ -168,7 +169,7 @@ const SignupForm = () => {
           width="150"
           alt="logo"
         />
-      </link>
+      </Link>
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <div className={style.form_group}>

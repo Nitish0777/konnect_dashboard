@@ -13,8 +13,9 @@ import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import Signin from "../modal/SignIn";
-import Signup from "../modal/SignUp";
+import Signin from "../../pages/signin/SignIn";
+import { Link } from "react-router-dom";
+import Signup from "../../pages/signup/SignUp";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -25,8 +26,8 @@ const Dashboard = () => {
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-        <Signin />
-        <Signup />
+        <Link to="/signin">SignIn</Link>
+        <Link to="/signup">SignUp</Link>
         <Box>
           <Button
             sx={{

@@ -11,34 +11,34 @@
 //   const [auth, setAuth] = useAuth();
 
 //   const navigate = useNavigate();
-//   const handleSignIn = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const res = await axios.post(
-//         `${process.env.REACT_APP_API}/api/users/login`,
-//         {
-//           email,
-//           password,
-//         }
-//       );
-//       console.log(res);
-//       if (res.data.success) {
-//         console.log(res);
-//         const { user, token } = res.data;
-//         setAuth({
-//           token: token,
-//           user: user,
-//         });
-//         localStorage.setItem("auth", JSON.stringify({ token, user }));
-//         toast.success("Sign in successful");
-//         navigate("/");
-//       } else {
-//         toast.error(res.data.message);
+// const handleSignIn = async (e) => {
+//   e.preventDefault();
+//   try {
+//     const res = await axios.post(
+//       `${process.env.REACT_APP_API}/api/users/login`,
+//       {
+//         email,
+//         password,
 //       }
-//     } catch (error) {
-//       console.log(error);
+//     );
+//     console.log(res);
+//     if (res.data.success) {
+//       console.log(res);
+//       const { user, token } = res.data;
+//       setAuth({
+//         token: token,
+//         user: user,
+//       });
+//       localStorage.setItem("auth", JSON.stringify({ token, user }));
+//       toast.success("Sign in successful");
+//       navigate("/");
+//     } else {
+//       toast.error(res.data.message);
 //     }
-//   };
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 //   return (
 //     <Layout>
@@ -66,6 +66,7 @@
 // export default SignIn;
 import React, { useState } from "react";
 import style from "./signin.module.css";
+import { Link } from "react-router-dom";
 
 const universities = [
   "Bharati Vidyapeeth",
@@ -101,30 +102,47 @@ const SigninForm = () => {
   const [passwordError, setPasswordError] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Your form validation logic here
-    // For example, you can check the email and password format
-    // and show appropriate error messages if they are invalid.
-
-    // Your form submission logic here
-    alert("Sign In successful! Welcome back to Connect!");
-    // Redirect to the dashboard page
-    // window.location.href = "dashboard.html"; // Replace with your actual dashboard page URL
+    const handleSignIn = async (e) => {
+      e.preventDefault();
+      // try {
+      //   const res = await axios.post(
+      //     `${process.env.REACT_APP_API}/api/users/login`,
+      //     {
+      //       email,
+      //       password,
+      //     }
+      //   );
+      //   console.log(res);
+      //   if (res.data.success) {
+      //     console.log(res);
+      //     const { user, token } = res.data;
+      //     setAuth({
+      //       token: token,
+      //       user: user,
+      //     });
+      //     localStorage.setItem("auth", JSON.stringify({ token, user }));
+      //     toast.success("Sign in successful");
+      //     navigate("/");
+      //   } else {
+      //     toast.error(res.data.message);
+      //   }
+      // } catch (error) {
+      //   console.log(error);
+      // }
+    };
   };
 
   return (
     <div className={style.container}>
-      <div className={style.logo1}>
-        <link to="..header/Header" className={style.logo}>
+      <div>
+        <Link to="..header/Header">
           <img
-            src="Nitish-SIH\inno\client\src\assets\light.png"
-            className={style.logoimg}
+            src="https://i.ibb.co/7t7GK9t/logo.png"
             height="50"
             width="150"
             alt="logo"
           />
-        </link>
+        </Link>
       </div>
       <h1>Sign In</h1>
       <form onSubmit={handleSubmit}>
