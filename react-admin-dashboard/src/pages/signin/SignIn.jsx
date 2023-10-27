@@ -1,72 +1,9 @@
-// import React, { useState } from "react";
-// import axios from "axios";
-// import { toast } from "react-toastify";
-// import { useNavigate } from "react-router-dom";
-// import { useAuth } from "../../context/Auth";
-// import Layout from "../layout/Layout.jsx";
-
-// const SignIn = () => {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [auth, setAuth] = useAuth();
-
-//   const navigate = useNavigate();
-// const handleSignIn = async (e) => {
-//   e.preventDefault();
-//   try {
-//     const res = await axios.post(
-//       `${process.env.REACT_APP_API}/api/users/login`,
-//       {
-//         email,
-//         password,
-//       }
-//     );
-//     console.log(res);
-//     if (res.data.success) {
-//       console.log(res);
-//       const { user, token } = res.data;
-//       setAuth({
-//         token: token,
-//         user: user,
-//       });
-//       localStorage.setItem("auth", JSON.stringify({ token, user }));
-//       toast.success("Sign in successful");
-//       navigate("/");
-//     } else {
-//       toast.error(res.data.message);
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-//   return (
-//     <Layout>
-//       <div>
-//         Sign In form
-//         <form onSubmit={handleSignIn}>
-//           <input
-//             type="text"
-//             placeholder="Email"
-//             name="email"
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-//           <input
-//             type="password"
-//             placeholder="Password"
-//             name="password"
-//             onChange={(e) => setPassword(e.target.value)}
-//           />
-//           <button type="submit">Sign In</button>
-//         </form>
-//       </div>
-//     </Layout>
-//   );
-// };
-// export default SignIn;
 import React, { useState } from "react";
 import style from "./signin.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { useAuth } from "../../context/Auth";
 
 const universities = [
   "Bharati Vidyapeeth",
@@ -100,36 +37,37 @@ const SigninForm = () => {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [auth, setAuth] = useAuth();
 
-  const handleSubmit = (e) => {
-    const handleSignIn = async (e) => {
-      e.preventDefault();
-      // try {
-      //   const res = await axios.post(
-      //     `${process.env.REACT_APP_API}/api/users/login`,
-      //     {
-      //       email,
-      //       password,
-      //     }
-      //   );
-      //   console.log(res);
-      //   if (res.data.success) {
-      //     console.log(res);
-      //     const { user, token } = res.data;
-      //     setAuth({
-      //       token: token,
-      //       user: user,
-      //     });
-      //     localStorage.setItem("auth", JSON.stringify({ token, user }));
-      //     toast.success("Sign in successful");
-      //     navigate("/");
-      //   } else {
-      //     toast.error(res.data.message);
-      //   }
-      // } catch (error) {
-      //   console.log(error);
-      // }
-    };
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_API}/api/users/login`,
+        {
+          email,
+          password,
+        }
+      );
+      console.log(res);
+      if (res.data.success) {
+        console.log(res);
+        const { user, token } = res.data;
+        setAuth({
+          token: token,
+          user: user,
+        });
+        localStorage.setItem("auth", JSON.stringify({ token, user }));
+        toast.success("Sign in successful");
+        navigate("/");
+      } else {
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

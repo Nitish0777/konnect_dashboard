@@ -11,39 +11,6 @@
 //   const [password, setPassword] = useState("");
 //   const [confirmPassword, setConfirmPassword] = useState("");
 
-//   const navigate = useNavigate();
-
-//   const handleSignUp = async (e) => {
-//     e.preventDefault();
-//     if (password !== confirmPassword) {
-//       toast.error("Passwords do not match");
-//       return;
-//     }
-//     try {
-//       const res = await axios.post(
-//         `${process.env.REACT_APP_API}/api/users/register`,
-//         {
-//           college,
-//           email,
-//           name,
-//           password,
-//         }
-//       );
-//       console.log("res from backend", res);
-//       if (res.data.success) {
-//         console.log(res.data);
-//         toast.success("Verify your mail");
-//         navigate("/login");
-//       } else {
-//         console.log("Sign up error", res.data.messages);
-//         toast.error(res.data.message);
-//       }
-//     } catch (error) {
-//       console.log(error);
-//       toast.error(error.response.data.message);
-//     }
-//   };
-
 //   return (
 //     <Layout>
 //       <div>
@@ -84,7 +51,9 @@
 // export default SignUp;
 import React, { useState } from "react";
 import style from "./signup.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const universities = [
   "Bharati Vidyapeeth",
@@ -122,6 +91,8 @@ const SignupForm = () => {
   const [passwordError, setPasswordError] = useState("");
   const [prn, setPrn] = useState("");
 
+  const navigate = useNavigate();
+
   const handleUniversityChange = (e) => {
     const selectedUniversity = e.target.value;
     setSelectedUniversity(selectedUniversity);
@@ -143,27 +114,41 @@ const SignupForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (password !== confirmPassword) {
-      setPasswordError("Passwords do not match");
+      toast.error("Passwords do not match");
       return;
-    } else {
-      setPasswordError("");
     }
-
-    // Your form submission logic here
-    alert("Sign Up successful! Welcome to Connect!");
-    // Redirect to the dashboard page
-    // window.location.href = "dashboard.html"; // Replace with your actual dashboard page URL
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_API}/api/users/register`,
+        {
+          college,
+          email,
+          name,
+          password,
+        }
+      );
+      console.log("res from backend", res);
+      if (res.data.success) {
+        console.log(res.data);
+        toast.success("Verify your mail");
+        navigate("/login");
+      } else {
+        console.log("Sign up error", res.data.messages);
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response.data.message);
+    }
   };
-
   return (
     <div className={style.container}>
       <Link to="/" className="logo">
         <img
-          src=".\assets\light.png"
+          src=" https://res.cloudinary.com/dpysmqax5/image/upload/v1630146399/Connect%20Logo/Connect_Logo_1_yxqk5a.png"
           className={style.logoimg}
           height="50"
           width="150"
