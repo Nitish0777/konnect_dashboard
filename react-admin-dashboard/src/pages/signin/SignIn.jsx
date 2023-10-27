@@ -73,7 +73,7 @@ const SigninForm = () => {
   return (
     <div className={style.container}>
       <div>
-        <Link to="..header/Header">
+        <Link to="/">
           <img
             src="https://i.ibb.co/7t7GK9t/logo.png"
             height="50"
@@ -82,14 +82,15 @@ const SigninForm = () => {
           />
         </Link>
       </div>
-      <h1>Sign In</h1>
+      <h1 style={{ color: "white" }}>Sign In</h1>
       <form onSubmit={handleSubmit}>
         <div className={style.form_group}>
-          <label htmlFor="email">College Email:</label>
+          <label style={{ color: "white", fontSize: "19px" }} htmlFor="email">
+            College Email:
+          </label>
           <div className={style.clg}>
             <input
               type="email"
-              style={{ width: "95%" }}
               id="email"
               name="email"
               required
@@ -102,7 +103,12 @@ const SigninForm = () => {
           </div>
         </div>
         <div className={style.form_group}>
-          <label htmlFor="password">Password:</label>
+          <label
+            style={{ color: "white", fontSize: "19px" }}
+            htmlFor="password"
+          >
+            Password:
+          </label>
           <div className={style.password_container}>
             <input
               type="password"
@@ -112,9 +118,6 @@ const SigninForm = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="button" id="show-password">
-              Show
-            </button>
           </div>
         </div>
         <div className={style.error} id="password-error">

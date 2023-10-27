@@ -1,16 +1,3 @@
-// import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import axios from "axios";
-// import { toast } from "react-toastify";
-// import Layout from "../layout/Layout";
-
-// const SignUp = () => {
-//   const [college, setCollege] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [name, setName] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [confirmPassword, setConfirmPassword] = useState("");
-
 //   return (
 //     <Layout>
 //       <div>
@@ -83,13 +70,13 @@ const universities = [
 ];
 
 const SignupForm = () => {
+  const [prn, setPrn] = useState("");
   const [email2, setEmail2] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [selectedUniversity, setSelectedUniversity] = useState("");
-  const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [prn, setPrn] = useState("");
+  const [name, setName] = useState("");
 
   const navigate = useNavigate();
 
@@ -114,6 +101,15 @@ const SignupForm = () => {
     }
   };
 
+  const handlePrn = (e) => {
+    const newprn = e.target.value;
+    setPrn(newprn);
+  };
+  const handleName = (e) => {
+    const newname = e.target.value;
+    setName(newname);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -124,10 +120,10 @@ const SignupForm = () => {
       const res = await axios.post(
         `${process.env.REACT_APP_API}/api/users/register`,
         {
-          college,
-          email,
-          name,
+          college: selectedUniversity,
+          email: prn + email2,
           password,
+          name,
         }
       );
       console.log("res from backend", res);
@@ -148,7 +144,7 @@ const SignupForm = () => {
     <div className={style.container}>
       <Link to="/" className="logo">
         <img
-          src=" https://res.cloudinary.com/dpysmqax5/image/upload/v1630146399/Connect%20Logo/Connect_Logo_1_yxqk5a.png"
+          src=""
           className={style.logoimg}
           height="50"
           width="150"
@@ -179,27 +175,31 @@ const SignupForm = () => {
           <label htmlFor="email">College Email:</label>
           <div className="clg">
             <input
+              onChnage={handlePrn}
               type="text"
               id="email1"
               name="email"
+              value={prn}
               required
-              value={selectedUniversity + email2}
-              readOnly
             />
-            <input type="email" id="email2" name="email" disabled />
-          </div>
-          <div className={style.error} id="email-error">
-            {emailError}
+            <input
+              type="email"
+              id="email2"
+              name="email"
+              value={email2}
+              disabled
+            />
           </div>
         </div>
         <div className={style.form_group}>
-          <label htmlFor="prn">Name:</label>
+          <label htmlFor="name">Name:</label>
           <input
             type="text"
-            id="prn"
-            name="prn"
+            id="name"
+            name="name"
+            value={name}
+            onChange={handleName}
             required
-            onChange={(e) => setPrn(e.target.value)}
           />
         </div>
         <div className={style.form_group}>
@@ -213,9 +213,6 @@ const SignupForm = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="button" id="show-password">
-              Show
-            </button>
           </div>
         </div>
         <div className={style.form_group}>

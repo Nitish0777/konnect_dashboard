@@ -32,10 +32,32 @@ const Topbar = () => {
       {/* ICONS */}
       <Box display="flex">
         <IconButton>
-          <Link to={"/signup"}>Sign Up</Link>
+          <Link
+            style={{
+              backgroundColor: "#4cceac",
+              textDecoration: "none",
+              padding: "6px ",
+              borderRadius: "10px",
+              color: "white",
+            }}
+            to={"/signup"}
+          >
+            Sign Up
+          </Link>
         </IconButton>
         <IconButton>
-          <Link to={"/signin"}>Sign In</Link>
+          <Link
+            style={{
+              backgroundColor: "#4cceac",
+              textDecoration: "none",
+              padding: "6px ",
+              borderRadius: "10px",
+              color: "white",
+            }}
+            to={"/signin"}
+          >
+            Sign In
+          </Link>
         </IconButton>
 
         <IconButton onClick={colorMode.toggleColorMode}>

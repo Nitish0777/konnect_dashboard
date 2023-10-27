@@ -12,10 +12,12 @@ body {
   width: 90%;
   max-width: 400px;
   padding: 20px;
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.2);
   border-radius: 25px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 4px 8px 4px rgba(7, 188, 248, 0.2);
   transition: 0.3s;
+  margin-left: 34%;
+  margin-top: 10%;
 }
 
 .container:hover {
@@ -38,6 +40,7 @@ form {
 label {
   display: block;
   font-weight: bold;
+  color: white;
 }
 
 input[type="password"] {
@@ -83,15 +86,13 @@ select {
   background-color: #fff;
   font-size: 16px;
   color: #333;
-  appearance: none; /* Remove the default arrow icon on some browsers */
+  appearance: none;
 }
 
-/* Style the dropdown arrow icon */
 select::-ms-expand {
-  display: none; /* Remove the arrow icon on Internet Explorer/Edge */
+  display: none;
 }
 
-/* Add hover and focus styles */
 select:hover,
 select:focus {
   border-color: #3498db;
@@ -103,8 +104,6 @@ select:focus {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
-
-/* ... (your existing CSS code) */
 
 .password_container {
   display: flex;
@@ -134,6 +133,13 @@ select:focus {
 .clg {
   display: flex;
 }
+.clg input {
+  padding: 10px;
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
 #email1 {
   border-right: none;
   width: 85%;
@@ -148,32 +154,6 @@ select:focus {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
-  /* background: rgba(0, 0, 0, 0.2); */
-}
-.box {
-  border-radius: 500px;
-  background: #90cee6;
-  opacity: 0.5;
-  filter: blur(200px);
-  width: 717px;
-  height: 691px;
-  position: absolute;
-  left: -117px;
-  top: -132px;
-  pointer-events: none;
-}
-.box-2 {
-  border-radius: 10px;
-  /* background: #c090e6; */
-  background: #90cee6;
-  opacity: 0.5;
-  filter: blur(200px);
-  width: 717px;
-  height: 691px;
-  position: absolute;
-  right: 0px;
-  bottom: -150px;
-  pointer-events: none;
 }
 #confirm-password {
   width: 95%;

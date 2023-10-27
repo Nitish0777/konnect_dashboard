@@ -16,6 +16,8 @@ body {
   border-radius: 25px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
+  margin-left: 34%;
+  margin-top: 10%;
 }
 
 .container:hover {
@@ -38,6 +40,7 @@ form {
 label {
   display: block;
   font-weight: bold;
+  color: black;
 }
 
 input[type="password"] {
@@ -68,7 +71,6 @@ button:hover {
   background-color: #2980b9;
 }
 
-/* Responsive styles */
 @media screen and (max-width: 768px) {
   .container {
     max-width: 90%;
@@ -83,15 +85,13 @@ select {
   background-color: #fff;
   font-size: 16px;
   color: #333;
-  appearance: none; /* Remove the default arrow icon on some browsers */
+  appearance: none;
 }
 
-/* Style the dropdown arrow icon */
 select::-ms-expand {
-  display: none; /* Remove the arrow icon on Internet Explorer/Edge */
+  display: none;
 }
 
-/* Add hover and focus styles */
 select:hover,
 select:focus {
   border-color: #3498db;
@@ -103,8 +103,6 @@ select:focus {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
-
-/* ... (your existing CSS code) */
 
 .password-container {
   display: flex;
@@ -148,7 +146,6 @@ select:focus {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
-  /* background: rgba(0, 0, 0, 0.2); */
 }
 .box {
   border-radius: 500px;
@@ -164,7 +161,6 @@ select:focus {
 }
 .box-2 {
   border-radius: 10px;
-  /* background: #c090e6; */
   background: #90cee6;
   opacity: 0.5;
   filter: blur(200px);
