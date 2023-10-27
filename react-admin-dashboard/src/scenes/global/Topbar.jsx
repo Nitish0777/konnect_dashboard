@@ -101,13 +101,19 @@ const Topbar = () => {
           )}
         </IconButton>
         <IconButton>
-          <NotificationsOutlinedIcon />
+          <Link to="/contacts" style={{ color: "white", marginTop: "3px" }}>
+            <NotificationsOutlinedIcon />
+          </Link>
         </IconButton>
         <IconButton>
-          <SettingsOutlinedIcon />
+          <Link to="/team" style={{ color: "white", marginTop: "3px" }}>
+            <SettingsOutlinedIcon />
+          </Link>
         </IconButton>
         <IconButton>
-          <PersonOutlinedIcon />
+          <Link to="/form" style={{ color: "white", marginTop: "3px" }}>
+            <PersonOutlinedIcon />
+          </Link>
         </IconButton>
       </Box>
     </Box>
