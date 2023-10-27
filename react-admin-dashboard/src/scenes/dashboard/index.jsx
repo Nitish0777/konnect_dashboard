@@ -14,12 +14,15 @@ import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { useAuth } from "../../context/Auth";
+import Project from "./uploadproject/Project";
+import { useState } from "react";
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   const [auth, setAuth] = useAuth();
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <Box m="20px">
@@ -35,18 +38,7 @@ const Dashboard = () => {
         )}
 
         <Box>
-          <Button
-            sx={{
-              backgroundColor: colors.blueAccent[700],
-              color: colors.grey[100],
-              fontSize: "14px",
-              fontWeight: "bold",
-              padding: "10px 20px",
-            }}
-          >
-            <CloudUploadIcon sx={{ mr: "10px" }} />
-            Upload Projects
-          </Button>
+          <Project />
         </Box>
       </Box>
 
