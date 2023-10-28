@@ -86,7 +86,7 @@ const SignupForm = () => {
       const gmail = prn.concat(email2);
       console.log("Concat Gmail " + gmail);
       const res = await axios.post(
-        `${process.env.REACT_APP_API}/api/users/register`,
+        `https://konnect-dashboard.vercel.app/api/users/register`,
         {
           college: selectedUniversity,
           email: gmail,
