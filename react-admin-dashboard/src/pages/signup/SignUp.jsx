@@ -75,7 +75,7 @@ const SignupForm = () => {
     const newname = e.target.value;
     setName(newname);
   };
-
+  axios.defaults.withCredentials = true;
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {

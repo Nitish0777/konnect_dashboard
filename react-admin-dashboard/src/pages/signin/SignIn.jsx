@@ -41,7 +41,7 @@ const SigninForm = () => {
   const [auth, setAuth] = useAuth();
 
   const navigate = useNavigate();
-
+  axios.defaults.withCredentials = true;
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
