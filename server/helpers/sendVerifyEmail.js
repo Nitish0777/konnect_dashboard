@@ -19,7 +19,7 @@ const sendVerifyEmail = async (name, email, user_id) => {
       subject: "Verify Email",
       html: `<h1>Hi ${name}</h1>
         <p>Click on the link to verify your email</p>
-        <a href="https://konnect-three.vercel.app/api/users/verify?id=${user_id}">Click Here</a>
+        <a href="http://127.0.0.1:${process.env.PORT}/api/users/verify?id=${user_id}">Click Here</a>
         `,
     };
     const result = await transporter.sendMail(mailOptions);
