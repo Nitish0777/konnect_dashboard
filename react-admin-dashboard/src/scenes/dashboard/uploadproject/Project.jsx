@@ -2,29 +2,16 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileUpload } from "@fortawesome/free-solid-svg-icons";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
-import { styled } from "@mui/material/styles";
+
 import {
-  Box,
   Button,
-  IconButton,
-  TextareaAutosize,
-  Typography,
+
   useTheme,
 } from "@mui/material";
 import { tokens } from "../../../theme";
 import style from "./Project.module.css";
 
-const VisuallyHiddenInput = styled("input")({
-  clip: "rect(0 0 0 0)",
-  clipPath: "inset(50%)",
-  height: 1,
-  overflow: "hidden",
-  position: "absolute",
-  bottom: 0,
-  left: 0,
-  whiteSpace: "nowrap",
-  width: 1,
-});
+
 
 export default function Project() {
   const theme = useTheme();
