@@ -12,7 +12,9 @@
 
 .form_container {
   position: absolute;
-  right: 10px;
+  top: 120px;
+  right: 180px;
+  height: 670px;
   width: 400px;
   background: #fff;
   border: 1px solid #dddfe2;
