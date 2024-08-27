@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadset } from "@fortawesome/free-solid-svg-icons";
+// import "./assistant.css"; // Import your CSS file here
 
 const Assistant = () => {
   const [showCallbackPopup, setShowCallbackPopup] = useState(false);
@@ -34,9 +35,11 @@ const Assistant = () => {
         }}
         onClick={toggleCallbackPopup}
       >
+        {/* <i className="fa fa-headset" style={{ color: "#ffffff" }}></i> */}
         <FontAwesomeIcon icon={faHeadset} />
       </div>
 
+      {/* Assistant Options (Hidden by default) */}
       <div
         className="assistant-options"
         style={{
@@ -63,10 +66,12 @@ const Assistant = () => {
         </div>
       </div>
 
+      {/* Request Callback Popup (Hidden by default) */}
       {showCallbackPopup && (
         <div className="request-callback-popup">{/* Popup content */}</div>
       )}
 
+      {/* Chat Popup (Hidden by default) */}
       {showChatPopup && <div className="chat-popup">{/* Popup content */}</div>}
     </div>
   );

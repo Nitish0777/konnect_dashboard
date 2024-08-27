@@ -1,10 +1,20 @@
 import React from "react";
-import "./hero.css";
+import "./hero.css"; // Import your CSS file here
 
+import { useState } from "react";
 const Hero = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div className="content" id="home">
-      <div className="container">
+      <div className="container1">
         <div className="info">
           <h1 className="head">Let's Konnect!</h1>
           <p>
@@ -23,7 +33,9 @@ const Hero = () => {
             connect every university in India through one platform to grow and
             innovate!
           </p>
-          <button className="getstart1">Get Started</button>
+          <button className="getstart1" onClick={openModal}>
+            Get Started
+          </button>
         </div>
         <div className="image">
           <img
@@ -33,7 +45,7 @@ const Hero = () => {
           />
         </div>
       </div>
-    </div>
+      </div>
   );
 };
 

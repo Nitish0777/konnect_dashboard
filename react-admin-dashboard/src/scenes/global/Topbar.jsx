@@ -1,4 +1,4 @@
-import { Box, IconButton, useTheme } from "@mui/material";
+import { Box, Button, IconButton, useTheme } from "@mui/material";
 import { useContext } from "react";
 import { ColorModeContext, tokens } from "../../theme";
 import InputBase from "@mui/material/InputBase";
@@ -8,7 +8,7 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/Auth";
 import { toast } from "react-toastify";
 
@@ -18,6 +18,13 @@ const Topbar = () => {
   const colorMode = useContext(ColorModeContext);
 
   const [auth, setAuth] = useAuth();
+  const navigate = useNavigate();
+  function handleclick() {
+    navigate("/signup");
+  }
+  function handleclick1() {
+    navigate("/signin");
+  }
 
   const handleLogout = () => {
     setAuth({
@@ -39,7 +46,7 @@ const Topbar = () => {
       >
         <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
         <IconButton type="button" sx={{ p: 1 }}>
-          <SearchIcon />
+          <SearchIcon  />
         </IconButton>
       </Box>
 
@@ -62,34 +69,34 @@ const Topbar = () => {
           </IconButton>
         ) : (
           <>
-            <IconButton>
-              <Link
-                style={{
-                  backgroundColor: "#4cceac",
-                  textDecoration: "none",
-                  padding: "6px ",
-                  borderRadius: "10px",
-                  color: "white",
-                }}
-                to={"/signup"}
-              >
-                Sign Up
-              </Link>
-            </IconButton>
-            <IconButton>
-              <Link
-                style={{
-                  backgroundColor: "#4cceac",
-                  textDecoration: "none",
-                  padding: "6px ",
-                  borderRadius: "10px",
-                  color: "white",
-                }}
-                to={"/signin"}
-              >
-                Sign In
-              </Link>
-            </IconButton>
+            <Button
+              style={{
+                borderColor: theme.palette.mode === "dark" ? "white" : "black",
+                color: theme.palette.mode === "dark" ? "white" : "black",
+                fontSize: "14px",
+                margin: "6px",
+                borderWidth:"1.5px"
+              }}
+              variant="outlined"
+              size="large"
+              onClick={handleclick}
+            >
+              Sign Up
+            </Button>
+            <Button
+              style={{
+                borderColor: theme.palette.mode === "dark" ? "white" : "black",
+                color: theme.palette.mode === "dark" ? "white" : "black",
+                fontSize: "14px",
+                margin: "6px",
+                borderWidth:"1.5px"
+              }}
+              variant="outlined"
+              size="large"
+              onClick={handleclick1}
+            >
+              Sign In
+            </Button>
           </>
         )}
 
@@ -101,18 +108,18 @@ const Topbar = () => {
           )}
         </IconButton>
         <IconButton>
-          <Link to="/contacts" style={{ color: "white", marginTop: "3px" }}>
-            <NotificationsOutlinedIcon />
+          <Link to="/contacts" style={{ color: theme.palette.mode === "dark" ? "white" : "black", marginTop: "3px" }}>
+            <NotificationsOutlinedIcon style={{ color: theme.palette.mode === "dark" ? "white" : "black"}} />
           </Link>
         </IconButton>
         <IconButton>
-          <Link to="/team" style={{ color: "white", marginTop: "3px" }}>
-            <SettingsOutlinedIcon />
+          <Link to="/team" style={{ color: theme.palette.mode === "dark" ? "white" : "black", marginTop: "3px" }}>
+            <SettingsOutlinedIcon style={{ color: theme.palette.mode === "dark" ? "white" : "black"}} />
           </Link>
         </IconButton>
         <IconButton>
-          <Link to="/form" style={{ color: "white", marginTop: "3px" }}>
-            <PersonOutlinedIcon />
+          <Link to="/form" style={{ color: theme.palette.mode === "dark" ? "white" : "black", marginTop: "3px" }}>
+            <PersonOutlinedIcon style={{ color: theme.palette.mode === "dark" ? "white" : "black"}} />
           </Link>
         </IconButton>
       </Box>

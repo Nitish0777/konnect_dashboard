@@ -1,15 +1,37 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileUpload } from "@fortawesome/free-solid-svg-icons";
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import { styled } from "@mui/material/styles";
+import {
+  Box,
+  Button,
+  IconButton,
+  TextareaAutosize,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import { tokens } from "../../../theme";
 import style from "./Project.module.css";
+
+const VisuallyHiddenInput = styled("input")({
+  clip: "rect(0 0 0 0)",
+  clipPath: "inset(50%)",
+  height: 1,
+  overflow: "hidden",
+  position: "absolute",
+  bottom: 0,
+  left: 0,
+  whiteSpace: "nowrap",
+  width: 1,
+});
 
 export default function Project() {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isDropZoneActive, setIsDropZoneActive] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState(null);
+  const [uploadedFileName, setUploadedFileName] = useState("");
   const [formData, setFormData] = useState({
     projectName: "",
     projectDescription: "",
@@ -48,28 +70,35 @@ export default function Project() {
   const handleDragOver = (e) => {
     e.preventDefault();
     setIsDropZoneActive(true);
+    const files = e.dataTransfer.files;
+    setUploadedFileName(files.name);
   };
 
   const handleDragLeave = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     setIsDropZoneActive(false);
   };
 
   const handleDrop = (e) => {
     e.preventDefault();
-    const files = e.dataTransfer.files;
+    const files = e.dataTransfer.files[0];
+    setUploadedFileName(files.name);
     setSelectedFiles(files);
     setIsDropZoneActive(false);
   };
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
+    setUploadedFileName(file.name);
     setSelectedFiles([file]);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(selectedFiles);
+  };
+  const handleCancel = () => {
+    setUploadedFileName(""); // Clear the uploaded file name
   };
 
   return (
@@ -82,6 +111,9 @@ export default function Project() {
           fontSize: "14px",
           fontWeight: "bold",
           padding: "10px 20px",
+          "&.MuiButtonBase-root:hover": {
+            bgcolor: "transparent",
+          },
         }}
         className="btn-modal"
         onClick={toggleModal}
@@ -114,6 +146,7 @@ export default function Project() {
                 value={formData.projectDescription}
                 onChange={handleInputChange}
                 required
+                style={{ background: "white" }}
               ></textarea>
             </div>
 
@@ -138,31 +171,51 @@ export default function Project() {
               />
               Ongoing
             </label>
-            <label>Upload Folder</label>
-            <div
-              className={`drop_zone ${isDropZoneActive ? "active" : ""}`}
-              onDragOver={handleDragOver}
-              onDragLeave={handleDragLeave}
-              onDrop={handleDrop}
-            >
-              <label htmlFor="folder" className={style.upload_label}>
-                <div className={style.upload_icon}>
-                  <FontAwesomeIcon icon={faFileUpload} />
-                </div>
-                <div>Drag & Drop files here or click to browse</div>
-              </label>
-              <input
-                type="file"
-                id="folder"
-                name="folder"
-                accept=".zip,.rar,.7zip"
-                onChange={handleFileChange}
-              />
-            </div>
+            <div>
+      <div
+        className={`drop_zone ${isDropZoneActive ? "active" : ""}`}
+        style={{
+          border: "2px solid black",
+          padding: "20px",
+          textAlign: "center",
+        }}
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        onDrop={handleDrop}
+      >
+        <label htmlFor="folder" className="upload_label" style={{ display: "block" }}>
+          <div className="upload_icon" style={{ fontSize: "48px" }}>
+            <FontAwesomeIcon icon={faFileUpload} />
+          </div>
+          <div>Drag & Drop files here or click to browse</div>
+        </label>
+        <Button
+          component="label"
+          variant="contained"
+          accept=".zip,.rar,.7zip"
+          tabIndex={-1}
+          startIcon={<CloudUploadIcon />}
+          style={{ marginTop: "10px" }}
+        >
+          Upload files
+          <input
+            type="file"
+            onChange={handleFileChange}
+            multiple
+            style={{ display: "none" }}
+          />
+        </Button>
+      </div>
+      {uploadedFileName && (
+        <div style={{ marginTop: "10px", color: "black" }}>
+          Uploaded File: {uploadedFileName}
+        </div>
+      )}
+    </div>
 
             <div className={style.buttons}>
               <button type="submit">Upload Project</button>
-              <button type="button">Cancel</button>
+              <button onClick={handleCancel} type="button">Cancel</button>
             </div>
           </form>
           <button className={style.close_modal} onClick={toggleModal}>

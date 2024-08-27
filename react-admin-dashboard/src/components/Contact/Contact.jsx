@@ -114,7 +114,6 @@ const Contact = () => {
             </li>
             <li>
               <a href="#" target="_blank" className="contact-icon">
-                {/* <i className="fa fa-codepen" aria-hidden="true"></i> */}
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
             </li>
