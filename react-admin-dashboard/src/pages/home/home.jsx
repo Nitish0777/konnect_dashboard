@@ -14,9 +14,9 @@ const Home = () => {
       <Hero />
       <About />
       <Contact />
-      <Footer />
       <Social />
       <Assistant />
+      <Footer />
     </div>
   );
 }

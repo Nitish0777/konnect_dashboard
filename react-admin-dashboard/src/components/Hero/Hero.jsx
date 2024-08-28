@@ -38,6 +38,7 @@ const Hero = () => {
             className="heroimg"
             src="https://i.postimg.cc/65QxYYzh/001234.png"
             alt="Hero"
+            style={{borderRadius:"50%",paddingRight:"70px",height:"500px",width:"2000px"}}
           />
         </div>
       </div>

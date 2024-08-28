@@ -48,16 +48,9 @@ const Footer = () => {
               <div className="col-xl-4 col-lg-4 mb-50">
                 <div className="footer-widget">
                   <div className="footer-logo">
-                    <a href="index.html">
+                    <a href="/">
                       <img src={logo} className="img-fluid" alt="logo" />
                     </a>
-                  </div>
-                  <div className="footer-text">
-                    <p>
-                      Lorem ipsum dolor sit amet, consec tetur adipisicing elit,
-                      sed do eiusmod tempor incididuntut consec tetur
-                      adipisicing elit,Lorem ipsum dolor sit amet.
-                    </p>
                   </div>
                   <div className="footer-social-icon">
                     <span>Follow us</span>
@@ -119,38 +112,32 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
       <div className="copyright-area">
-        <div className="containers">
-          <div className="row">
-            <div className="col-xl-6 col-lg-6 text-center text-lg-left">
-              <div className="copyright-text">
-                <p>
-                  Copyright &copy; 2023, All Right Reserved{" "}
-                  <a href="home.html">Konnect</a>
-                </p>
-              </div>
-            </div>
-            <div className="col-xl-6 col-lg-6 d-none d-lg-block text-right">
-              <div className="footer-menu">
-                <ul>
-                  <li>
-                    <a href="#">Home</a>
-                  </li>
-                  <li>
-                    <a href="#">Terms</a>
-                  </li>
-                  <li>
-                    <a href="#">Privacy</a>
-                  </li>
-                  <li>
-                    <a href="#">Policy</a>
-                  </li>
-                  <li>
-                    <a href="#">Contact</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+        <div className="footerlastdiv">
+          <div className="copyright-text" style={{ marginLeft: "25px" }}>
+            <p>
+              &copy; 2023, All Rights Reserved <a href="home.html">Konnect</a>
+            </p>
+          </div>
+          <div className="footer-menu" style={{ marginRight: "25px" }}>
+            <ul className="d-flex list-unstyled mb-0">
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">Terms</a>
+              </li>
+              <li>
+                <a href="#">Privacy</a>
+              </li>
+              <li>
+                <a href="#">Policy</a>
+              </li>
+              <li>
+                <a href="#">Contact</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
