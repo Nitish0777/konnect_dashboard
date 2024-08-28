@@ -1,17 +1,11 @@
 import React from "react";
 import "./hero.css"; // Import your CSS file here
+import { useNavigate } from "react-router-dom";
 
-import { useState } from "react";
 const Hero = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
+  const navigate = useNavigate();
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
   return (
     <div className="content" id="home">
       <div className="container1">
@@ -33,7 +27,9 @@ const Hero = () => {
             connect every university in India through one platform to grow and
             innovate!
           </p>
-          <button className="getstart1" onClick={openModal}>
+          <button className="getstart1" onClick={()=>{
+            navigate("/signup")
+          }}>
             Get Started
           </button>
         </div>
@@ -42,6 +38,7 @@ const Hero = () => {
             className="heroimg"
             src="https://i.postimg.cc/65QxYYzh/001234.png"
             alt="Hero"
+            style={{borderRadius:"50%",paddingRight:"70px",height:"500px",width:"2000px"}}
           />
         </div>
       </div>

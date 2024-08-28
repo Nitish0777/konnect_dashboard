@@ -42,7 +42,7 @@ ul {
   background-position: 100% 100%;
 }
 .footer-logo {
-  margin-bottom: 30px;
+  margin-bottom: 1px;
 }
 .footer-logo img {
   max-width: 200px;
@@ -59,7 +59,7 @@ ul {
   font-size: 20px;
   font-weight: 700;
   font-family: "Poppins", sans-serif;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .footer-social-icon a {
   color: #fff;
@@ -118,18 +118,19 @@ ul {
 .subscribe-form input {
   width: 100%;
   padding: 14px 28px;
-  background: #2e2e2e;
-  border: 1px solid #2e2e2e;
-  color: #fff;
+  background: #f6f3f3;
+  border: 1px solid #fefefe;
+  color: #000000;
+  margin-bottom: 20px;
 }
 .subscribe-form button {
   position: absolute;
   right: 0;
-  background: aqua;
+  background: rgb(241, 244, 244);
   padding-top: 5px;
   padding-bottom: 15px;
   margin-top: 5px;
-  border: 1px solid aqua;
+  border: 1px solid rgb(255, 255, 255);
 }
 .subscribe-form button i {
   color: #fff;
@@ -146,14 +147,28 @@ ul {
   color: #878787;
 }
 .copyright-text p a {
-  color: aqua;
+  color: rgb(255, 255, 255);
 }
 .footer-menu li {
   display: inline-block;
   margin-left: 20px;
+  list-style: none;
 }
+.footer-menu ul {
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+.footer-menu a {
+  color: #d1d1d1;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
 .footer-menu li:hover a {
-  color: aqua;
+  color: rgb(231, 238, 238);
 }
 .footer-menu li a {
   font-size: 14px;
@@ -162,4 +177,12 @@ ul {
 .containers {
   width: 95%;
   margin-left: 20px;
+}
+.footer-menu a:hover {
+  color: #f1c40f;
+}
+
+.footerlastdiv{
+  display: flex;
+  justify-content: space-between;
 }
