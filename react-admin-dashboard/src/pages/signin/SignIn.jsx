@@ -6,33 +6,6 @@ import axios from "axios";
 import { useAuth } from "../../context/Auth";
 import logo from "../../assets/dark.png";
 
-const universities = [
-  "Bharati Vidyapeeth",
-  "Deccan College Post-Graduate and Research Institute",
-  "Defence Institute of Advanced Technology (formerly Institute of Armament Technology)",
-  "Dnyaneshwar Vidyapeeth",
-  "FLAME University",
-  "Gokhale Institute of Politics and Economics",
-  "Indian Institute of Information Technology, Pune",
-  "Indian Institute of Science Education and Research, Pune",
-  "Christ University Pune Lavasa, Campus",
-  "Indian Institute of Science Education and Research, Pune",
-  "National Institute of Construction Management and Research",
-  "National Defence Academy",
-  "Tilak Maharashtra University",
-  "Savitribai Phule Pune University",
-  "Spicer Adventist University",
-  "Symbiosis International University",
-  "MIT University - MIT Art, Design and Technology University",
-  "Ajeenkya DY Patil University",
-  "Flame University",
-  "MIT - World Peace University",
-  "Spicer Adventist University",
-  "Christ University Pune Lavasa, Campus",
-  "Symbiosis International University",
-  "Symbiosis Skills and Professional University",
-];
-
 const SigninForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -75,7 +48,7 @@ const SigninForm = () => {
     <div className={style.container}>
       <div>
         <Link to="/">
-          <img src={logo} height="50" width="150" alt="logo" />
+          <img src={logo} height="70" max-width="200" alt="logo" />
         </Link>
       </div>
       <h1 style={{ color: "white" }}>Sign In</h1>

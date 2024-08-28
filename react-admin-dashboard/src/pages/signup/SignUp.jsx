@@ -114,8 +114,7 @@ const SignupForm = () => {
         <img
           src={logo}
           className={style.logoimg}
-          height="50"
-          width="150"
+          height="70" max-width="200"
           alt="logo"
         />
       </Link>
