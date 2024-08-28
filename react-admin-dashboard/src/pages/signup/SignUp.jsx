@@ -39,7 +39,6 @@ const SignupForm = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [selectedUniversity, setSelectedUniversity] = useState("");
-  const [passwordError, setPasswordError] = useState("");
   const [name, setName] = useState("");
 
   const navigate = useNavigate();
@@ -87,6 +86,7 @@ const SignupForm = () => {
       console.log("Concat Gmail " + gmail);
       const res = await axios.post(
        `https://konnect-server.vercel.app/api/users/register`,
+      // `http://localhost:8000/api/users/register`,
         {
           college: selectedUniversity,
           email: gmail,

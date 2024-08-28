@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import logo from "./images/light.png";
 import "./navbar.css";
-// import Signin from "../../modal/SignIn";
-// import Signup from "../../modal/SignUp";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { Box, Button, useTheme } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/Auth";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [auth, setAuth] = useAuth();
+  const navigate = useNavigate();
+  const theme = useTheme();
+  const [isDarkTheme] = useState(false);
   useEffect(() => {
     if (isDarkTheme) {
       document.body.classList.add("dark-mode"); // Apply dark theme class
@@ -27,6 +30,22 @@ const Navbar = () => {
     };
   }, []); // Empty dependency array ensures that this effect runs once after the initial render
 
+  function handleclick() {
+    navigate("/signup");
+  }
+  function handleclick1() {
+    navigate("/signin");
+  }
+  const handleLogout = () => {
+    setAuth({
+      ...auth,
+      user: null,
+      token: "",
+    });
+    localStorage.removeItem("auth");
+    toast.success("Logged out successfully");
+  };
+
   const openLanguageMenu = () => {
     const selectBox = document.querySelector(".goog-te-combo");
 
@@ -35,9 +54,7 @@ const Navbar = () => {
       selectBox.click();
     }
   };
-  const toggleTheme = () => {
-    setIsDarkTheme((prevTheme) => !prevTheme);
-  };
+
   return (
     <header className="sticky-header">
       <div className="container">
@@ -72,18 +89,71 @@ const Navbar = () => {
           )}
         </div> */}
         <div id="google_element" onClick={openLanguageMenu}></div>
-      </div>
+      
+      <Box style={{width:"20%"}} display="flex">
+        {auth?.user ? (
+          <Button
+          style={{
+            borderColor: theme.palette.mode === "dark" ? "white" : "black",
+            color: theme.palette.mode === "dark" ? "white" : "black",
+            fontSize: "14px",
+            margin: "6px",
+            borderWidth:"1.5px",
+            height: "50%",
+            width: "50%"
+          }}
+          variant="outlined"
+          size="large"
+          onClick={() => {
+            setAuth(false);
+            handleLogout();
+          }}
+        >
+          Log Out
+        </Button>
+        ) : (
+          <>
+            <Button
+              style={{
+                borderColor: theme.palette.mode === "dark" ? "white" : "black",
+                color: theme.palette.mode === "dark" ? "white" : "black",
+                fontSize: "14px",
+                margin: "6px",
+                borderWidth:"1.5px",
+                height: "50%",
+                width: "200%",
+                marginRight:"20px"
+              }}
+              variant="outlined"
+              size="large"
+              onClick={handleclick}
+            >
+              Sign Up
+            </Button>
+            <Button
+              style={{
+                borderColor: theme.palette.mode === "dark" ? "white" : "black",
+                color: theme.palette.mode === "dark" ? "white" : "black",
+                fontSize: "14px",
+                margin: "6px",
+                borderWidth:"1.5px",
+                height: "50%",
+                width: "200%",
+                marginRight:"20px",
+                marginLeft:"20px"
+              }}
+              variant="outlined"
+              size="large"
+              onClick={handleclick1}
+            >
+              Sign In
+            </Button>
+          </>
+        )}
+        </Box>
+        </div>
     </header>
   );
 };
 
 export default Navbar;
-// <div className="theme-toggle">
-//   <input
-//     type="checkbox"
-//     id="theme-toggle-checkbox"
-//     checked={isDarkTheme}
-//     onChange={() => setIsDarkTheme(!isDarkTheme)}
-//   />
-//   <label for="theme-toggle-checkbox"></label>
-// </div>

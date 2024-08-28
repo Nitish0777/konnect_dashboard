@@ -7,6 +7,7 @@ import About from "../../components/About/About";
 import Contact from "../../components/Contact/Contact";
 import Assistant from "../../components/Assistant/Assistant";
 
+
 const Home = () => {
   return (
     <div>

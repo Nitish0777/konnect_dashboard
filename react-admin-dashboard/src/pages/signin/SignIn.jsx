@@ -9,9 +9,9 @@ import logo from "../../assets/dark.png";
 const SigninForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [auth, setAuth] = useAuth();
+  const [emailError] = useState("");
+  const [passwordError] = useState("");
+  const [auth,setAuth] = useAuth();
 
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
@@ -20,14 +20,15 @@ const SigninForm = () => {
     try {
       const res = await axios.post(
         `https://konnect-server.vercel.app/api/users/login`,
+        // `http://localhost:8000/api/users/login`,
         {
           email,
           password,
         }
       );
-      console.log(res);
+      // console.log(res.data);
       if (res.data.success) {
-        console.log(res);
+        // console.log(res);
         const { user, token } = res.data;
         setAuth({
           token: token,
