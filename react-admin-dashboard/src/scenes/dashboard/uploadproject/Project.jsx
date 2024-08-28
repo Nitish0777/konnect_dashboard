@@ -120,7 +120,7 @@ export default function Project() {
           zIndex: 1,
         }}
       ></div>
-    <div style={{height: uploadedFileName ?  "610px" : "580px"}} className={style.form_container}>
+    <div style={{height: uploadedFileName ?  "610px" : "580px"}} className={style.form_container }>
       <form onSubmit={handleSubmit}>
         <div className={style.form_group}>
           <div onClick={toggleModal} className={style.overlay}></div>
@@ -233,7 +233,7 @@ export default function Project() {
               accept=".zip,.rar,.7zip"
               tabIndex={-1}
               startIcon={<CloudUploadIcon />}
-              style={{backgroundColor:"#545ac8",width:"120px",height:"24px"}}
+              style={{backgroundColor:"#545ac8",width:"120px",height:"28px"}}
             >
               Upload files
               <input
