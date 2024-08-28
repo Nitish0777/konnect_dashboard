@@ -86,7 +86,7 @@ const SignupForm = () => {
       const gmail = prn.concat(email2);
       console.log("Concat Gmail " + gmail);
       const res = await axios.post(
-        `http://localhost:8000/api/users/register`,
+       `https://konnect-server.vercel.app/api/users/register`,
         {
           college: selectedUniversity,
           email: gmail,
@@ -94,6 +94,7 @@ const SignupForm = () => {
           name,
         }
       );
+
       console.log("res from backend", res);
       if (res.data.success) {
         console.log(res.data);
