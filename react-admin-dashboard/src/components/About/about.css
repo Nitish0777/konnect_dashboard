@@ -72,18 +72,17 @@ a {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
-  width: calc(
-    30% - 20px
-  ); /* Adjusted box width and margin for better spacing */
+  width: calc(30% - 20px);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
   border: 2px solid #6c63ff;
   margin: 10px;
-  height: 220px; /* Increased box height for better content visibility */
+  height: 220px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  transition: height 0.3s ease;
 }
 
 .about-box h3 {
@@ -115,7 +114,6 @@ a {
   background-color: #f8f8f8;
 }
 
-/* Container Styling */
 .container2 {
   max-width: 1200px;
   margin: 0 auto;
@@ -131,4 +129,84 @@ a {
 }
 .about-us {
   font-size: larger;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+.about-box.expanded {
+  height: 300px;
+}
+.about-us .container2 h2 {
+  text-align: center;
+  font-size: 50px;
+}
+
+.about-boxes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.about-box {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: calc(30% - 20px);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  border: 2px solid #6c63ff;
+  margin: 10px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  transition: height 0.3s ease;
+}
+
+.about-box h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.about-box p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.about-box a {
+  text-decoration: none;
+  color: #6c63ff;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.about-box a:hover {
+  text-decoration: underline;
+}
+
+.about-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f8f8f8;
+}
+
+.container2 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+  .about-box {
+    width: calc(50% - 20px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-box {
+    width: calc(100% - 20px);
+  }
 }

@@ -1,0 +1,397 @@
+/* Start Global Rules */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  /* text-decoration: none; */
+  color: #fbf5f5 !important;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  /* padding-left: 15px; */
+  /* padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 0px; */
+  width: 100%;
+  background-color: #06183d;
+}
+
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+header {
+  min-height: 80px;
+  display: flex;
+}
+
+@media (max-width: 767px) {
+  header {
+    min-height: auto;
+    display: initial;
+  }
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 767px) {
+  header .container {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+header .logo {
+  color: #f2eaea;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+@media (max-width: 767px) {
+  header .logo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+header .links {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  header .links {
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+header .links li {
+  margin-left: 30px;
+  color: #faf6f6;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+@media (max-width: 767px) {
+  header .links li {
+    margin-left: auto;
+  }
+}
+
+header .links li:last-child {
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: #fff;
+  /* background-color: #6c63ff; */
+}
+
+header .links li a:not(:last-child):hover {
+  color: #6c63ff;
+}
+
+.content .container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 140px;
+  height: 95px;
+  background-color: #141b2d;
+}
+
+@media (max-width: 767px) {
+  .content .container {
+    /* min-height: calc(100vh - 101px); */
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+}
+
+@media (max-width: 767px) {
+  .content .info {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+}
+
+.content .info h1 {
+  color: #f9f1f1;
+  font-size: 75px;
+}
+
+.content .info p {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 17px;
+  color: #ffffff;
+}
+
+.content .info button {
+  border: 0;
+  border-radius: 20px;
+  padding: 12px 30px;
+  margin-top: 30px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #6c63ff;
+}
+
+.content .image img {
+  max-width: 130%;
+}
+
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode .links li {
+  color: #fff;
+}
+
+.toggle-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  border-radius: 20px;
+}
+
+.toggle-button:hover {
+  background-color: #0056b3;
+}
+
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode .links li {
+  color: #fff;
+}
+
+.theme-toggle {
+  position: relative;
+  width: 60px;
+  height: 34px;
+}
+
+.theme-toggle input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-toggle label {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.3s;
+}
+
+.theme-toggle label:after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #fff;
+  top: 4px;
+  left: 4px;
+  transition: transform 0.3s;
+}
+
+.theme-toggle input[type="checkbox"]:checked + label {
+  background-color: #007bff;
+}
+
+.theme-toggle input[type="checkbox"]:checked + label:after {
+  transform: translateX(26px);
+}
+
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode a {
+  color: #fff;
+}
+
+.dark-mode .links li {
+  color: #fff;
+}
+
+.dark-mode .content h1,
+.dark-mode .content p,
+.dark-mode .toggle-button {
+  color: #fff;
+}
+
+.sticky-container {
+  height: 20%;
+  position: fixed;
+  right: -130px;
+  top: 200px;
+  width: 210px;
+  z-index: 1100;
+  background-color: #000000;
+}
+
+.links .signin:hover {
+  color: gold;
+  background-color: black;
+}
+
+.dark-mode {
+  color: white;
+}
+
+.links li {
+  font-size: larger;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+a {
+  text-decoration: none;
+  color: #5d5d5d;
+}
+.links li a:hover {
+  text-decoration: underline;
+}
+.box {
+  border-radius: 500px;
+  background: #90cee6;
+  opacity: 0.5;
+  filter: blur(200px);
+  width: 717px;
+  height: 691px;
+  position: absolute;
+  left: -117px;
+  top: -132px;
+  pointer-events: none;
+}
+.box-2 {
+  border-radius: 10px;
+  /* background: #c090e6; */
+  background: #90cee6;
+  opacity: 0.5;
+  filter: blur(200px);
+  width: 717px;
+  height: 691px;
+  position: absolute;
+  right: 0px;
+  bottom: -150px;
+  pointer-events: none;
+}
+.signin a {
+  color: white;
+}
+.sticky-header {
+  position: sticky;
+  background: #141b2d; /* Set your desired background color */
+  z-index: 100;
+}
+.container {
+  padding-left: 10px;
+  width: 100%;
+  background: rgba(8, 2, 43, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(6px);
+  /* border-radius: 45px; */
+  /* margin-top: 10px; */
+}
+.dark-mode header {
+  background: #333;
+  backdrop-filter: transparent(5px);
+}
+/* navbar.css */
+
+.theme-toggle {
+  cursor: pointer;
+  margin-left: 10px; /* Add some spacing */
+}
+
+.icon {
+  font-size: 1.5rem; /* Adjust the icon size as needed */
+  color: #333; /* Set the color of the icon */
+  transition: color 0.3s ease; /* Add a smooth color transition */
+}
+
+.theme-toggle:hover .icon {
+  color: #ffcc00; /* Change the color on hover */
+}
+/* Navbar.css */
+
+/* Add your existing styles */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff; /* Change the background color as needed */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: #f0f0f0; /* Change the hover background color as needed */
+}
+
+.theme-toggle svg {
+  font-size: 18px; /* Adjust the icon size as needed */
+  color: #333; /* Change the icon color as needed */
+}
+
+/* Add any additional styles as needed */
