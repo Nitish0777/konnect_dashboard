@@ -6,6 +6,8 @@ import {
   Button,
   useTheme,
 } from "@mui/material";
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
 import { tokens } from "../../../theme";
 import style from "./Project.module.css";
 
@@ -113,16 +115,22 @@ export default function Project() {
           top: 0,
           left: 0,
           width: "100%",
-          height: "100%",
+          height: "121%",
           backgroundColor: "rgba(0, 0, 0, 0.5)",
           zIndex: 1,
         }}
       ></div>
-    <div className={style.form_container}>
+    <div style={{height: uploadedFileName ?  "610px" : "580px"}} className={style.form_container }>
       <form onSubmit={handleSubmit}>
         <div className={style.form_group}>
           <div onClick={toggleModal} className={style.overlay}></div>
-          <label htmlFor="projectName">Name of Project:</label>
+          <div style={{display:"flex",justifyContent:"flex-end",marginTop:"-20px",marginRight:"-20px"}}>
+          <IconButton style={{color:"white"}} onClick={toggleModal}>
+            <CloseIcon />
+          </IconButton>
+          </div>
+
+          <label style={{marginTop:"-20px",color:"white",paddingBottom:"1px"}} htmlFor="projectName">Name of Project:</label>
           <input
             type="text"
             id="projectName"
@@ -132,18 +140,20 @@ export default function Project() {
             onChange={handleInputChange}
             required
             style={{
+              fontFamily:"monospace",
+              color:"white",
               width: "100%",
               padding: "10px",
               borderRadius: "8px",
-              border: "1px solid #ccc",
-              backgroundColor: "#f9f9f9",
+              border: "1px solid #dddfe289",
+              backgroundColor: "#1f2a3f",
               fontSize: "16px",
             }}
           />
         </div>
 
         <div className={style.form_group}>
-          <label htmlFor="projectDescription">Project Description:</label>
+          <label style={{color:"white"}} htmlFor="projectDescription">Project Description:</label>
           <textarea
             id="projectDescription"
             name="projectDescription"
@@ -152,12 +162,12 @@ export default function Project() {
             onChange={handleInputChange}
             required
             style={{
-              color:"black",
+              color:"white",
               width: "100%",
               padding: "10px",
               borderRadius: "8px",
               border: "1px solid #ccc",
-              backgroundColor: "#f9f9f9",
+              backgroundColor: "#1f2a3f",
               fontSize: "16px",
               minHeight: "100px",
             }}
@@ -165,7 +175,7 @@ export default function Project() {
         </div>
 
         <div className={style.form_group}>
-          <label htmlFor="technologyUsed">Technology Used:</label>
+          <label style={{color:"white"}} htmlFor="technologyUsed">Technology Used:</label>
           <input
             type="text"
             id="technologyUsed"
@@ -175,16 +185,17 @@ export default function Project() {
             onChange={handleInputChange}
             required
             style={{
+              color:"white",
               width: "100%",
               padding: "10px",
               borderRadius: "8px",
               border: "1px solid #ccc",
-              backgroundColor: "#f9f9f9",
+              backgroundColor: "#1f2a3f",
               fontSize: "16px",
             }}
           />
         </div>
-        <label>
+        <label style={{color:"white"}}>
           <input
             type="checkbox"
             name="ongoing"
@@ -197,7 +208,7 @@ export default function Project() {
           <div
             className={`drop_zone ${isDropZoneActive ? "active" : ""}`}
             style={{
-              border: "2px solid black",
+              border: "2px solid #dddfe289 ",
               padding: "20px",
               textAlign: "center",
               borderRadius: "8px",
@@ -209,7 +220,7 @@ export default function Project() {
             <label
               htmlFor="folder"
               className="upload_label"
-              style={{ display: "block" }}
+              style={{ display: "block",color:"white" }}
             >
               <div className="upload_icon" style={{ fontSize: "48px" }}>
                 <FontAwesomeIcon icon={faFileUpload} />
@@ -222,7 +233,7 @@ export default function Project() {
               accept=".zip,.rar,.7zip"
               tabIndex={-1}
               startIcon={<CloudUploadIcon />}
-              style={{ marginTop: "10px" }}
+              style={{backgroundColor:"#545ac8",width:"120px",height:"28px"}}
             >
               Upload files
               <input
@@ -234,13 +245,13 @@ export default function Project() {
             </Button>
           </div>
           {uploadedFileName && (
-            <div style={{ marginTop: "10px", color: "black" }}>
+            <div style={{ marginTop: "10px", color: "white" }}>
               Uploaded File: {uploadedFileName}
             </div>
           )}
         </div>
 
-        <div className={style.buttons}>
+        <div style={{marginBottom:"4px"}} className={style.buttons}>
           <button type="submit" style={{
             padding: "10px 20px",
             backgroundColor: colors.blueAccent[600],
@@ -255,8 +266,8 @@ export default function Project() {
             type="button"
             style={{
               padding: "10px 20px",
-              backgroundColor: "#ccc",
-              color: "#333",
+              backgroundColor: "#fff",
+              color: "black",
               border: "none",
               borderRadius: "8px",
               cursor: "pointer",
@@ -268,9 +279,6 @@ export default function Project() {
           </button>
         </div>
       </form>
-      <button className={style.close_modal} onClick={toggleModal}>
-        CLOSE
-      </button>
     </div>
      </div>
   )}

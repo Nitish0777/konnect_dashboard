@@ -14,10 +14,23 @@
   position: absolute;
   top: 120px;
   right: 180px;
-  height: 670px;
-  width: 400px;
-  background: #fff;
-  border: 1px solid #dddfe2;
+  width: 350px;
+  background: #1f2a3f;
+  border: 1px solid #dddfe289 ;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  border-radius: 8px;
+  padding: 1rem;
+  align-items: center;
+  text-align: center;
+  z-index: 200;
+}
+.form_container_dark {
+  position: absolute;
+  top: 120px;
+  right: 180px;
+  width: 350px;
+  background: #edeef0;
+  border: 1px solid #dddfe289 ;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
   border-radius: 8px;
   padding: 1rem;
@@ -42,11 +55,12 @@ body.active-modal {
 
 .modal_content {
   position: absolute;
+  color: white;
   top: 40%;
   left: 500%;
   transform: translate(-50%, -50%);
   line-height: 1.4;
-  background: #f1f1f1;
+  background: #1f2a3f;
   padding: 14px 28px;
   border-radius: 3px;
   max-width: 600px;
@@ -69,7 +83,7 @@ input[type="checkbox"] {
 }
 
 .upload_icon {
-  margin-right: 10px;
+  margin-right: 10px;;
 }
 
 .buttons {
@@ -124,7 +138,7 @@ button[type="submit"] {
 .upload_icon {
   margin-right: 10px;
   font-size: 24px;
-  color: black; /* Turquoise color */
+  color: rgb(251, 243, 243); /* Turquoise color */
 }
 .upload_btn_wrapper button:hover {
   background-color: blue;
@@ -139,6 +153,19 @@ button[type="submit"] {
   cursor: pointer;
   border-radius: 5px;
 }
+
+::placeholder {
+  color: whitesmoke;
+  opacity: 1; 
+}
+
+::-ms-input-placeholder { 
+  color: whitesmoke;
+}
+
+textarea:-ms-input-placeholder {
+  color: whitesmoke;  
+  }
 
 .drop_zone.active {
   background-color: #f0f8ff; /* Light blue background for active drop zone */

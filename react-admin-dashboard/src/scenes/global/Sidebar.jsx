@@ -65,7 +65,7 @@ const Sidebar = () => {
     >
       <ProSidebar 
       collapsed={isCollapsed}
-      style={{height:"113vh", overflow:"auto"}}
+      style={{height:"121vh", overflow:"auto"}}
       >
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
