@@ -19,12 +19,7 @@ const Topbar = () => {
 
   const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
-  function handleclick() {
-    navigate("/signup");
-  }
-  function handleclick1() {
-    navigate("/signin");
-  }
+
 
   const handleLogout = () => {
     setAuth({
@@ -52,53 +47,24 @@ const Topbar = () => {
 
       {/* ICONS */}
       <Box display="flex">
-        {auth?.user ? (
-          <IconButton onClick={() => setAuth(false)}>
-            <Link
-              style={{
-                backgroundColor: "#4cceac",
-                textDecoration: "none",
-                padding: "6px ",
-                borderRadius: "10px",
-                color: "white",
-              }}
-              to="/"
-            >
-              Logout
-            </Link>
-          </IconButton>
-        ) : (
-          <>
-            <Button
-              style={{
-                borderColor: theme.palette.mode === "dark" ? "white" : "black",
-                color: theme.palette.mode === "dark" ? "white" : "black",
-                fontSize: "14px",
-                margin: "6px",
-                borderWidth:"1.5px"
-              }}
-              variant="outlined"
-              size="large"
-              onClick={handleclick}
-            >
-              Sign Up
-            </Button>
-            <Button
-              style={{
-                borderColor: theme.palette.mode === "dark" ? "white" : "black",
-                color: theme.palette.mode === "dark" ? "white" : "black",
-                fontSize: "14px",
-                margin: "6px",
-                borderWidth:"1.5px"
-              }}
-              variant="outlined"
-              size="large"
-              onClick={handleclick1}
-            >
-              Sign In
-            </Button>
-          </>
-        )}
+          <Button
+          style={{
+            borderColor: theme.palette.mode === "dark" ? "white" : "black",
+            color: theme.palette.mode === "dark" ? "white" : "black",
+            fontSize: "14px",
+            margin: "6px",
+            borderWidth:"1.5px"
+          }}
+          variant="outlined"
+          size="large"
+          onClick={() => {
+            setAuth(false);
+            handleLogout();
+            navigate("/");
+          }}
+        >
+          Log Out
+        </Button>
 
         <IconButton onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? (

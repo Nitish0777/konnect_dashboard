@@ -22,11 +22,14 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Home from "./pages/home/home";
 
+import PrivateRoute from "./PrivateRoute"; // Import the PrivateRoute component
+
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
   const location = useLocation();
-  const isHomeRoute = location.pathname === "/";
+
+  const isDashboardRoute = location.pathname === "/dashboard";
 
   return (
     <AuthProvider>
@@ -35,12 +38,12 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <div className="app">
-          {!isHomeRoute && <Sidebar isSidebar={isSidebar} />}
+            {isDashboardRoute && <Sidebar isSidebar={isSidebar} />}
             <main className="content">
-            {!isHomeRoute && <Topbar setIsSidebar={setIsSidebar} />}
+              {isDashboardRoute && <Topbar setIsSidebar={setIsSidebar} />}
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} />} />
                 <Route path="/signin" element={<SigninForm />} />
                 <Route path="/signup" element={<SignupForm />} />
                 <Route path="/team" element={<Team />} />
