@@ -5,13 +5,14 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { useAuth } from "../../context/Auth";
 import logo from "../../assets/dark.png";
+import GoogleTranslate from "../../components/GoogleTranslate";
 
 const SigninForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError] = useState("");
   const [passwordError] = useState("");
-  const [auth,setAuth] = useAuth();
+  const [auth, setAuth] = useAuth();
 
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
