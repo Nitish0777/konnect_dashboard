@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import logo from "../../assets/dark.png";
+import GoogleTranslate from "../../components/GoogleTranslate";
 
 const universities = [
   "Gmail College",
@@ -85,8 +86,8 @@ const SignupForm = () => {
       const gmail = prn.concat(email2);
       console.log("Concat Gmail " + gmail);
       const res = await axios.post(
-       `https://konnect-server.vercel.app/api/users/register`,
-      // `http://localhost:8000/api/users/register`,
+        `https://konnect-server.vercel.app/api/users/register`,
+        // `http://localhost:8000/api/users/register`,
         {
           college: selectedUniversity,
           email: gmail,
@@ -115,7 +116,8 @@ const SignupForm = () => {
         <img
           src={logo}
           className={style.logoimg}
-          height="70" max-width="200"
+          height="70"
+          max-width="200"
           alt="logo"
         />
       </Link>

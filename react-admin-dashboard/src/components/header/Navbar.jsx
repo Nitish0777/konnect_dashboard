@@ -59,7 +59,13 @@ const Navbar = () => {
     <header className="sticky-header">
       <div className="container">
         <a href="/" className="logo">
-          <img src={logo} className="logoimg" height="70" max-width="200" alt=" " />
+          <img
+            src={logo}
+            className="logoimg"
+            height="70"
+            max-width="200"
+            alt=" "
+          />
         </a>
         <ul className="links">
           <li>
@@ -74,12 +80,8 @@ const Navbar = () => {
           <li>
             <a href="/dashboard">Dashboard</a>
           </li>
-          <li className="signin">
-            {/* <Signin /> */}
-          </li>
-          <li className="signin">
-            {/* <Signup /> */}
-          </li>
+          <li className="signin">{/* <Signin /> */}</li>
+          <li className="signin">{/* <Signup /> */}</li>
         </ul>
         {/* <div className="theme-toggle" onClick={toggleTheme}>
           {isDarkTheme ? (
@@ -89,69 +91,70 @@ const Navbar = () => {
           )}
         </div> */}
         <div id="google_element" onClick={openLanguageMenu}></div>
-      
-      <Box style={{width:"20%"}} display="flex">
-        {auth?.user ? (
-          <Button
-          style={{
-            borderColor: theme.palette.mode === "dark" ? "white" : "black",
-            color: theme.palette.mode === "dark" ? "white" : "black",
-            fontSize: "14px",
-            margin: "6px",
-            borderWidth:"1.5px",
-            height: "50%",
-            width: "50%"
-          }}
-          variant="outlined"
-          size="large"
-          onClick={() => {
-            setAuth(false);
-            handleLogout();
-          }}
-        >
-          Log Out
-        </Button>
-        ) : (
-          <>
+        <Box style={{ width: "20%" }} display="flex">
+          {auth?.user ? (
             <Button
               style={{
                 borderColor: theme.palette.mode === "dark" ? "white" : "black",
                 color: theme.palette.mode === "dark" ? "white" : "black",
                 fontSize: "14px",
                 margin: "6px",
-                borderWidth:"1.5px",
+                borderWidth: "1.5px",
                 height: "50%",
-                width: "200%",
-                marginRight:"20px"
+                width: "50%",
               }}
               variant="outlined"
               size="large"
-              onClick={handleclick}
-            >
-              Sign Up
-            </Button>
-            <Button
-              style={{
-                borderColor: theme.palette.mode === "dark" ? "white" : "black",
-                color: theme.palette.mode === "dark" ? "white" : "black",
-                fontSize: "14px",
-                margin: "6px",
-                borderWidth:"1.5px",
-                height: "50%",
-                width: "200%",
-                marginRight:"20px",
-                marginLeft:"20px"
+              onClick={() => {
+                setAuth(false);
+                handleLogout();
               }}
-              variant="outlined"
-              size="large"
-              onClick={handleclick1}
             >
-              Sign In
+              Log Out
             </Button>
-          </>
-        )}
+          ) : (
+            <>
+              <Button
+                style={{
+                  borderColor:
+                    theme.palette.mode === "dark" ? "white" : "black",
+                  color: theme.palette.mode === "dark" ? "white" : "black",
+                  fontSize: "14px",
+                  margin: "6px",
+                  borderWidth: "1.5px",
+                  height: "50%",
+                  width: "200%",
+                  marginRight: "20px",
+                }}
+                variant="outlined"
+                size="large"
+                onClick={handleclick}
+              >
+                Sign Up
+              </Button>
+              <Button
+                style={{
+                  borderColor:
+                    theme.palette.mode === "dark" ? "white" : "black",
+                  color: theme.palette.mode === "dark" ? "white" : "black",
+                  fontSize: "14px",
+                  margin: "6px",
+                  borderWidth: "1.5px",
+                  height: "50%",
+                  width: "200%",
+                  marginRight: "20px",
+                  marginLeft: "20px",
+                }}
+                variant="outlined"
+                size="large"
+                onClick={handleclick1}
+              >
+                Sign In
+              </Button>
+            </>
+          )}
         </Box>
-        </div>
+      </div>
     </header>
   );
 };
